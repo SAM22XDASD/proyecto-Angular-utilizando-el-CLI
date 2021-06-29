@@ -22,12 +22,12 @@ export interface StockInterface {
       stocks.push(stock);
       return this.get();
     }
-    remove(stock) {
+    remove(stock:string) {
       stocks.splice(stocks.indexOf(stock), 1);
       return this.get();
     }
 
-    load(symbols) {
+    load(symbols:string[]) {
       if (!symbols) {
         symbols = ['AAPL'];
       }
