@@ -12,9 +12,25 @@ export interface StockInterface {
   
   
   @Injectable()
+
   export class StocksService { 
     constructor(private http: HttpClient) { }
-    get() {return stocks.slice();}
-    add(stock: string) {stocks.push(stock);return this.get();}
-    remove(stock) {stocks.splice(stocks.indexOf(stock), 1);return this.get();}
-    load(symbols) {if (!symbols) {symbols = ['AAPL'];}return this.http.get<Array<StockInterface>>(service + '/stocks/snapshot?symbols=' + symbols.join());}}
+    get() {
+      return stocks.slice();
+    }
+    add(stock: string) {
+      stocks.push(stock);
+      return this.get();
+    }
+    remove(stock) {
+      stocks.splice(stocks.indexOf(stock), 1);
+      return this.get();
+    }
+
+    load(symbols) {
+      if (!symbols) {
+        symbols = ['AAPL'];
+      }
+      return this.http.get<Array<StockInterface>>(service + '/stocks/snapshot?symbols=' + symbols.join());
+    }
+  }

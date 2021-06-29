@@ -1,3 +1,4 @@
+import { StocksService, StockInterface } from './services/stocks.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'stocks';
+  stocks: Array<StockInterface>= [];
+
+  constructor(service: StocksService) {
+    service.load(['AAPL']).subscribe(stocks => {
+      this.stocks = stocks;
+    });
+  }
+
 }
