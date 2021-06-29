@@ -1,5 +1,5 @@
+
 import { Component, Input } from '@angular/core';
-import { StocksService, StockInterface } from './services/stocks.service';
 @Component({
   selector: 'summary',
   templateUrl: './summary.component.html',
